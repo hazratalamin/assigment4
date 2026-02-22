@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <header class="w-[80%] mx-auto ">
+            <h1 class="text-4xl font-bold font-['Poppins'] text-[#002C5C]">Job Application Tracker</h1>
+        <div class="grid grid-cols-3 gap-5 py-4">
+            <div class="bg-white-500 p-4 border border-gray-200 rounded-[10px]">
+                <p>Total</p>
+                <p id="total">0</p>
+            </div>
+            <div class="bg-white-500 p-4 border border-gray-200 rounded-[10px]">
+                <p>Interview</p>
+                <p id="interviewCount">0</p>
+            </div>
+            <div class="bg-white-500 p-4 border border-gray-200 rounded-[10px]"><p>Rejected</p>
+            <p id="rejectedCount">0</p>
+        </div>
+        </div>
+    </header>
+
+<hr class="w-[80%] mx-auto border-gray-200 my-5">
+
+    <section class="flex justify-between items-center mx-auto w-[80%]   ">
+    <h2 class="text-2xl text-[#002C5C] font-bold  font-['Poppins']">Available Jobs</h2>
+    <p class=" text-sm font-semibold text-gray-600">
+        8 jobs
+    </p>
+</section>
+
+<main class="w-[80%] mx-auto">
+<div class="flex space-x-4">
+    <button onclick="toggleStyle('all-filter-btn')" class="bg-[#3B82F6] text-white  px-12 py-3"  id="all-filter-btn">All</button>
+    
+    <button onclick="toggleStyle('interview-filter-btn')" class="bg-gray-300 px-5 py-3"id="interview-filter-btn">Interview</button>
+    <button onclick="toggleStyle('rejected-filter-btn')" class="bg-gray-300 px-5 py-3"id="rejected-filter-btn">Rejected</button>
+</div>
+
+<!-- allCards1 -->
+
+<section id="allCards"  class="mt-5  space-y-5">
+
+    <!-- card1 -->
+
+    <div class="card flex justify-between border border-gray-200 rounded-[10px] p-5">
+        <!-- main1 -->
+        <div class="space-y-2">
+<h1>Mobile First Corp </h1>
+<p>React Native Developer</p>
+<p>Remote • Full-time • $130,000 - $175,000</p>
+
+<p class="status">Not Applied</p>
+<p>Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+<!-- btn1 -->
+<div class="space-x-2">
+    <button class=" interview-btn bg-white-500 text-green-500 px-4 py-2 border rounded">INTERVIEW</button>
+    <button class=" rejected-btn bg-white-500 text-red-500 px-4 py-2 border rounded">REJECTED</button>
+</div>
+        </div>
+        <!-- main2 -->
+        <div>
+           <img src="./jobs.png" alt="" class="delete-btn">
+        </div>
+    </div>
+
+    <!-- card2 -->
+
+    <div class="card flex justify-between border border-gray-200 rounded-[10px] p-5">
+        <!-- main1 -->
+        <div class="space-y-2">
+<h1>Mobile First Corp </h1>
+<p>React Native Developer</p>
+<p>Remote • Full-time • $130,000 - $175,000</p>
+
+<p class="status">Not Applied</p>
+<p>Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+<!-- btn1 -->
+<div class="space-x-2">
+    <button class=" interview-btn bg-white-500 text-green-500 px-4 py-2 border rounded">INTERVIEW</button>
+    <button class=" rejected-btn bg-white-500 text-red-500 px-4 py-2 border rounded">REJECTED</button>
+</div>
+        </div>
+        <!-- main2 -->
+        <div>
+           <img src="./jobs.png" alt="" class="delete-btn">
+        </div>
+    </div>
+    
+    <!-- card3 -->
+
+    <div class="card flex justify-between border border-gray-200 rounded-[10px] p-5">
+        <!-- main1 -->
+        <div class="space-y-2">
+<h1>Mobile First Corp </h1>
+<p>React Native Developer</p>
+<p>Remote • Full-time • $130,000 - $175,000</p>
+
+<p class="status">Not Applied</p>
+<p>Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+<!-- btn1 -->
+<div class="space-x-2">
+    <button class=" interview-btn bg-white-500 text-green-500 px-4 py-2 border rounded">INTERVIEW</button>
+    <button class=" rejected-btn bg-white-500 text-red-500 px-4 py-2 border rounded">REJECTED</button>
+</div>
+        </div>
+        <!-- main2 -->
+        <div>
+           <img src="./jobs.png" alt="" class="delete-btn">
+        </div>
+    </div>
+</section>
+
+
+
+
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 let interviewList = [];
 let rejectedList =[];
+let currentStatus =[];
 
 
 let total = document.getElementById('total');
@@ -48,6 +49,10 @@ function toggleStyle(id){
     allCards.classList.remove('hidden');
     filteredCards.classList.add('hidden');
   }
+  else if(id == 'rejected-filter-btn'){
+  allCards.classList.add('hidden');
+  filteredCards.classList.remove('hidden');
+  }
 
 }
 
@@ -58,13 +63,9 @@ mainContainer.addEventListener('click', function(event){
         if(event.target.classList.contains('interview-btn')){
 
      const parentNode = event.target.parentNode.parentNode;
-    
-   
-
-    
     const title = parentNode.querySelector('h1').innerText;
     const role = parentNode.querySelectorAll('p')[0].innerText;
-    const details = parentNode.querySelectorAll('p')[1].innerText;
+    const details = parentNode.querySelectorAll('p')[2].innerText;
     const status = parentNode.querySelector('.status').innerText;
     parentNode.querySelector('.status').innerText = 'INTERVIEW';
 
@@ -81,6 +82,36 @@ mainContainer.addEventListener('click', function(event){
 if(!titleExist){
     interviewList.push(cardInfo);
 } 
+rejectedList = rejectedList.filter(item=>item.title != cardInfo.title)
+calculateCounts()
+ renderInterview()
+}
+       else if(event.target.classList.contains('rejected-btn')){
+
+     const parentNode = event.target.parentNode.parentNode;
+    const title = parentNode.querySelector('h1').innerText;
+    const role = parentNode.querySelectorAll('p')[0].innerText;
+    const details = parentNode.querySelectorAll('p')[2].innerText;
+    const status = parentNode.querySelector('.status').innerText;
+    parentNode.querySelector('.status').innerText = 'REJECTED';
+
+    const cardInfo = {
+        title,
+        role,
+        details,
+        status:'Rejected'
+    }
+    const titleExist = rejectedList.find(item => item.title === cardInfo.title);
+
+    
+
+if(!titleExist){
+    rejectedList.push(cardInfo);
+} 
+interviewList = interviewList.filter(item=>item.title != cardInfo.title)
+if 
+calculateCounts()
+
  renderInterview()
 }
     
@@ -93,6 +124,43 @@ filteredCards.innerHTML = '';
 for( let interview of interviewList){
 
 console.log(interview);
+
+let div = document.createElement('div');
+
+div.className ='card flex justify-between border border-gray-200 rounded-[10px] p-5';
+
+div.innerHTML =`   
+<div class="space-y-2">
+<h1>${interview.title} </h1>
+<p>React Native Developer</p>
+<p>Remote • Full-time • $130,000 - $175,000</p>
+
+ <p class="status text-green-500">${interview.status}</p>
+<p>Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+<!-- btn1 -->
+<div class="space-x-2">
+    <button class=" interview-btn bg-white-500 text-green-500 px-4 py-2 border rounded">INTERVIEW</button>
+    <button class=" rejected-btn bg-white-500 text-red-500 px-4 py-2 border rounded">REJECTED</button>
+</div>
+        </div>
+        <!-- main2 -->
+        <div>
+           <img src="./jobs.png" alt="" class="delete-btn">
+        </div>
+`
+filteredCards.appendChild(div);
+}
+
+}
+
+
+function renderRejected (){
+
+filteredCards.innerHTML = '';
+
+for( let rejected of rejectedList){
+
+// console.log(interview);
 
 let div = document.createElement('div');
 

@@ -33,12 +33,22 @@ function toggleStyle(id){
     interviewFilterBtn.classList.add('bg-gray-300', 'text-white');
     rejectedFilterBtn.classList.add('bg-gray-300', 'text-white');
 
-console.log(id);
+// console.log(id);
      const selected = document.getElementById(id);
-     console.log(selected);
+    //  console.log(selected);
 
   selected.classList.remove('bg-gray-300', 'text-white');
   selected.classList.add('bg-[#3B82F6]', 'text-white')
+
+  if(id == 'interview-filter-btn'){
+    allCards.classList.add('hidden');
+    filteredCards.classList.remove('hidden');
+  }
+  else if(id == 'all-filter-btn'){
+    allCards.classList.remove('hidden');
+    filteredCards.classList.add('hidden');
+  }
+
 }
 
 mainContainer.addEventListener('click', function(event){
@@ -47,7 +57,7 @@ mainContainer.addEventListener('click', function(event){
 
         if(event.target.classList.contains('interview-btn')){
 
-    const parentNode = event.target.parentNode.parentNode;
+     const parentNode = event.target.parentNode.parentNode;
     
    
 
@@ -56,14 +66,18 @@ mainContainer.addEventListener('click', function(event){
     const role = parentNode.querySelectorAll('p')[0].innerText;
     const details = parentNode.querySelectorAll('p')[1].innerText;
     const status = parentNode.querySelector('.status').innerText;
+    parentNode.querySelector('.status').innerText = 'INTERVIEW';
 
     const cardInfo = {
         title,
         role,
         details,
-        status
+        status:'INTERVIEW'
     }
     const titleExist = interviewList.find(item => item.title === cardInfo.title);
+
+    
+
 if(!titleExist){
     interviewList.push(cardInfo);
 } 
@@ -86,11 +100,11 @@ div.className ='card flex justify-between border border-gray-200 rounded-[10px] 
 
 div.innerHTML =`   
 <div class="space-y-2">
-<h1>Mobile First Corp </h1>
+<h1>${interview.title} </h1>
 <p>React Native Developer</p>
 <p>Remote • Full-time • $130,000 - $175,000</p>
 
-<p class="status">Not Applied</p>
+ <p class="status text-green-500">${interview.status}</p>
 <p>Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
 <!-- btn1 -->
 <div class="space-x-2">
@@ -103,7 +117,7 @@ div.innerHTML =`
            <img src="./jobs.png" alt="" class="delete-btn">
         </div>
 `
-
+filteredCards.appendChild(div);
 }
 
 }

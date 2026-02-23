@@ -1,6 +1,6 @@
 let interviewList = [];
 let rejectedList =[];
-let currentStatus =[];
+let currentStatus = 'all-filter-btn'
 
 
 let total = document.getElementById('total');
@@ -36,6 +36,7 @@ function toggleStyle(id){
 
 // console.log(id);
      const selected = document.getElementById(id);
+     currentStatus = id;
     //  console.log(selected);
 
   selected.classList.remove('bg-gray-300', 'text-white');
@@ -44,6 +45,7 @@ function toggleStyle(id){
   if(id == 'interview-filter-btn'){
     allCards.classList.add('hidden');
     filteredCards.classList.remove('hidden');
+    renderInterview();
   }
   else if(id == 'all-filter-btn'){
     allCards.classList.remove('hidden');
@@ -52,6 +54,7 @@ function toggleStyle(id){
   else if(id == 'rejected-filter-btn'){
   allCards.classList.add('hidden');
   filteredCards.classList.remove('hidden');
+  renderRejected();
   }
 
 }
@@ -109,10 +112,18 @@ if(!titleExist){
     rejectedList.push(cardInfo);
 } 
 interviewList = interviewList.filter(item=>item.title != cardInfo.title)
-if 
+
+calculateCounts();
+if (currentStatus == "interview-filter-btn"){
+    renderInterview();
+}
+else if (currentStatus === 'rejected-filter-btn') {
+        renderRejected(); 
+    }
+
 calculateCounts()
 
- renderInterview()
+ 
 }
     
 });
@@ -168,11 +179,11 @@ div.className ='card flex justify-between border border-gray-200 rounded-[10px] 
 
 div.innerHTML =`   
 <div class="space-y-2">
-<h1>${interview.title} </h1>
+<h1>${rejected.title} </h1>
 <p>React Native Developer</p>
 <p>Remote • Full-time • $130,000 - $175,000</p>
 
- <p class="status text-green-500">${interview.status}</p>
+ <p class="status text-green-500">${rejected.status}</p>
 <p>Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
 <!-- btn1 -->
 <div class="space-x-2">

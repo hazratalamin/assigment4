@@ -176,7 +176,7 @@ div.innerHTML =`
         </div>
         <!-- main2 -->
         <div>
-           <img src="./jobs.png" alt="" class="delete-btn">
+           <img src="./Group 1.png" alt="" class="delete-btn">
         </div>
 `
 filteredCards.appendChild(div);
@@ -218,7 +218,7 @@ div.innerHTML =`
         </div>
         <!-- main2 -->
         <div>
-           <img src="./jobs.png" alt="" class="delete-btn">
+           <img src="./Group 1.png" alt="" class="delete-btn">
         </div>
 `
 filteredCards.appendChild(div);

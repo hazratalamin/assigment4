@@ -25,6 +25,15 @@ function calculateCounts(){
     rejectCount.innerText = rejectedList.length;
 }
 calculateCounts();
+function emptyState(){
+    return `
+    <div class="border border-gray-200 rounded-[10px] p-10 flex flex-col items-center justify-center text-center bg-gray-50">
+        <img src="./jobs.png" class="w-16 mb-4 opacity-60">
+        <h2 class="text-lg font-semibold text-gray-600">No jobs available</h2>
+        <p class="text-sm text-gray-400">Check back soon for new job opportunities</p>
+    </div>
+    `;
+}
  
 function toggleStyle(id){
     allFilterBtn.classList.remove('bg-[#3B82F6]', 'text-white');
@@ -87,7 +96,13 @@ if(!titleExist){
 } 
 rejectedList = rejectedList.filter(item=>item.title != cardInfo.title)
 calculateCounts()
- renderInterview()
+
+  if (currentStatus === 'interview-filter-btn') {
+            renderInterview();
+        } 
+        else if (currentStatus === 'rejected-filter-btn') {
+            renderRejected();
+        }
 }
        else if(event.target.classList.contains('rejected-btn')){
 
@@ -132,6 +147,11 @@ function renderInterview (){
 
 filteredCards.innerHTML = '';
 
+if(interviewList.length === 0){     
+    filteredCards.innerHTML = emptyState();   
+    return;    
+}
+
 for( let interview of interviewList){
 
 console.log(interview);
@@ -168,6 +188,11 @@ filteredCards.appendChild(div);
 function renderRejected (){
 
 filteredCards.innerHTML = '';
+
+if(rejectedList.length === 0){    
+    filteredCards.innerHTML = emptyState();   
+    return;  
+}
 
 for( let rejected of rejectedList){
 

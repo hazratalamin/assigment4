@@ -87,13 +87,7 @@ if(!titleExist){
 } 
 rejectedList = rejectedList.filter(item=>item.title != cardInfo.title)
 calculateCounts()
-
-  if (currentStatus === 'interview-filter-btn') {
-            renderInterview();
-        } 
-        else if (currentStatus === 'rejected-filter-btn') {
-            renderRejected();
-        }
+ renderInterview()
 }
        else if(event.target.classList.contains('rejected-btn')){
 

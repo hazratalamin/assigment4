@@ -16,6 +16,7 @@ const allCards = document.getElementById('allCards');
 const mainContainer = document.querySelector('main');
 
 const filteredCards = document.getElementById('filteredCards');
+const jobsCount = document.getElementById('jobsCount');
 
 
 
@@ -23,8 +24,17 @@ function calculateCounts(){
     total.innerText = allCards.children.length;
     interviewCount.innerText = interviewList.length;
     rejectCount.innerText = rejectedList.length;
+    updateJobsCount();
 }
-calculateCounts();
+
+
+
+
+function updateJobsCount(){ 
+    jobsCount.innerText = allCards.children.length + " jobs";
+}
+
+
 function emptyState(){
     return `
     <div class="border border-gray-200 rounded-[10px] p-10 flex flex-col items-center justify-center text-center bg-gray-50">
@@ -70,11 +80,11 @@ function toggleStyle(id){
 
 mainContainer.addEventListener('click', function(event){
 
-    console.log(event.target.classList.contains('interview-btn'));
+    
 
         if(event.target.classList.contains('interview-btn')){
 
-     const parentNode = event.target.parentNode.parentNode;
+    const parentNode = event.target.closest('.card');
     const title = parentNode.querySelector('h1').innerText;
     const role = parentNode.querySelectorAll('p')[0].innerText;
     const details = parentNode.querySelectorAll('p')[2].innerText;
@@ -95,7 +105,7 @@ if(!titleExist){
     interviewList.push(cardInfo);
 } 
 rejectedList = rejectedList.filter(item=>item.title != cardInfo.title)
-calculateCounts()
+calculateCounts();
 
   if (currentStatus === 'interview-filter-btn') {
             renderInterview();
@@ -106,7 +116,7 @@ calculateCounts()
 }
        else if(event.target.classList.contains('rejected-btn')){
 
-     const parentNode = event.target.parentNode.parentNode;
+     const parentNode = event.target.closest('.card');
     const title = parentNode.querySelector('h1').innerText;
     const role = parentNode.querySelectorAll('p')[0].innerText;
     const details = parentNode.querySelectorAll('p')[2].innerText;
@@ -117,8 +127,12 @@ calculateCounts()
         title,
         role,
         details,
-        status:'Rejected'
+        status:'REJECTED'
     }
+    
+ 
+    
+
     const titleExist = rejectedList.find(item => item.title === cardInfo.title);
 
     
@@ -136,11 +150,37 @@ else if (currentStatus === 'rejected-filter-btn') {
         renderRejected(); 
     }
 
-calculateCounts()
+
 
  
 }
+  
+else if(event.target.classList.contains('delete-btn')){
+
+        const card = event.target.closest('.card'); 
+
+        const title = card.querySelector('h1').innerText;
+
+        
+        interviewList = interviewList.filter(item => item.title !== title);
+        rejectedList = rejectedList.filter(item => item.title !== title);
+
     
+        card.remove();
+
+        
+     calculateCounts(); 
+
+        
+        if(currentStatus === 'interview-filter-btn'){
+            renderInterview();
+        }
+        else if(currentStatus === 'rejected-filter-btn'){
+            renderRejected();
+        }
+    }
+
+
 });
 
 function renderInterview (){
@@ -225,3 +265,4 @@ filteredCards.appendChild(div);
 }
 
 }
+calculateCounts();

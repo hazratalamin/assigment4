@@ -206,7 +206,7 @@ div.innerHTML =`
 <p>React Native Developer</p>
 <p>Remote • Full-time • $130,000 - $175,000</p>
 
- <p class="status text-green-500">${interview.status}</p>
+ <p class="status text-green-500 w-fit bg-[#F0F7FF] text-[#002C5C] px-3 py-1.5 border border-[#002C5C]/20 rounded text-[10px] font-bold uppercase">${interview.status}</p>
 <p>Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
 <!-- btn1 -->
 <div class="space-x-2">
@@ -248,7 +248,7 @@ div.innerHTML =`
 <p>React Native Developer</p>
 <p>Remote • Full-time • $130,000 - $175,000</p>
 
- <p class="status text-green-500">${rejected.status}</p>
+ <p class="status text-red-500 w-fit bg-[#F0F7FF] text-[#002C5C] px-3 py-1.5 border border-[#002C5C]/20 rounded text-[10px] font-bold uppercase">${rejected.status}</p>
 <p>Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
 <!-- btn1 -->
 <div class="space-x-2">

@@ -158,7 +158,7 @@ console.log(interview);
 
 let div = document.createElement('div');
 
-div.className ='card flex justify-between border border-gray-200 rounded-[10px] p-5';
+div.className ='card flex justify-between border border-gray-200 rounded-[10px] p-5 hover:shadow-lg hover:-translate-y-1 transition ';
 
 div.innerHTML =`   
 <div class="space-y-2">
@@ -170,13 +170,13 @@ div.innerHTML =`
 <p>Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
 <!-- btn1 -->
 <div class="space-x-2">
-    <button class=" interview-btn bg-white-500 text-green-500 px-4 py-2 border rounded">INTERVIEW</button>
-    <button class=" rejected-btn bg-white-500 text-red-500 px-4 py-2 border rounded">REJECTED</button>
+    <button class=" interview-btn bg-white-500 text-green-500 px-4 py-2 border rounded cursor-pointer active:scale-95 transition-transform duration-100 ">INTERVIEW</button>
+    <button class=" rejected-btn bg-white-500 text-red-500 px-4 py-2 border rounded cursor-pointer active:scale-95 transition-transform duration-100">REJECTED</button>
 </div>
         </div>
         <!-- main2 -->
         <div>
-           <img src="./Group 1.png" alt="" class="delete-btn">
+           <img src="./Group 1.png" alt="" class="delete-btn cursor-pointer active:scale-95 transition-transform duration-100 ">
         </div>
 `
 filteredCards.appendChild(div);
@@ -212,13 +212,13 @@ div.innerHTML =`
 <p>Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
 <!-- btn1 -->
 <div class="space-x-2">
-    <button class=" interview-btn bg-white-500 text-green-500 px-4 py-2 border rounded">INTERVIEW</button>
-    <button class=" rejected-btn bg-white-500 text-red-500 px-4 py-2 border rounded">REJECTED</button>
+    <button class=" interview-btn bg-white-500 text-green-500 px-4 py-2 border rounded cursor-pointer active:scale-95 transition-transform duration-100 ">INTERVIEW</button>
+    <button class=" rejected-btn bg-white-500 text-red-500 px-4 py-2 border rounded cursor-pointer active:scale-95 transition-transform duration-100 ">REJECTED</button>
 </div>
         </div>
         <!-- main2 -->
         <div>
-           <img src="./Group 1.png" alt="" class="delete-btn">
+           <img src="./Group 1.png" alt="" class="delete-btn cursor-pointer active:scale-95 transition-transform duration-100 ">
         </div>
 `
 filteredCards.appendChild(div);
